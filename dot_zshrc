@@ -38,6 +38,7 @@ plugins=(git terraform starship suse sudo snap gradle git-auto-fetch emoji doten
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+export GITHUB_USER="michaelmelancon"
 
 export MANPATH="/usr/local/man:$MANPATH"
 

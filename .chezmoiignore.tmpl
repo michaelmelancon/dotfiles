@@ -1,4 +1,9 @@
 {{- if eq .chezmoi.os "windows"}}
 .zshrc
-{{- end }}
+.bashrc
+.profile
+.gitconfig
+.config/powershell
+{{- else }}
 .oh-my-zsh/cache/**
+{{ end }}

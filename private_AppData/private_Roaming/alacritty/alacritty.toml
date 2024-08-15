@@ -1,0 +1,15 @@
+import = ["~/AppData/Roaming/alacritty/themes/themes/one_dark.toml"]
+
+working_directory = "C:\\Users\\micha"
+shell.program = "pwsh"
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[font]
+size = 14
+normal.family = "FiraCode Nerd Font Mono"
+
+[bell]
+animation = "Ease"
+duration = 10

@@ -1,7 +1,8 @@
-import = ["~/AppData/Roaming/alacritty/themes/themes/one_dark.toml"]
-
+import = ["~/.config/alacritty/themes/themes/one_dark.toml"]
+{{ if eq .chezmoi.os "windows" }}
 working_directory = "C:\\Users\\micha"
 shell.program = "pwsh"
+{{ end }}
 
 [colors]
 draw_bold_text_with_bright_colors = true

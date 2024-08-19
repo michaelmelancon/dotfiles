@@ -1,10 +1,10 @@
 function vs {  
-  if ($env:VS_INSTALL_PATH -ne $null) {
+  if ($null -ne $env:VS_INSTALL_PATH) {
     Import-Module "$env:VS_INSTALL_PATH\Common7\Tools\Microsoft.VisualStudio.DevShell.dll"
     Enter-VsDevShell -VsInstallPath "$env:VS_INSTALL_PATH" -SkipAutomaticLocation
   }
   else {
-    echo "VS_INSTALL_PATH not set"
+    Write-Output "VS_INSTALL_PATH not set"
   }
 }
 

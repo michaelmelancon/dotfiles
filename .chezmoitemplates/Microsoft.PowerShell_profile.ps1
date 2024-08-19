@@ -1,6 +1,6 @@
 function vs {
   if ($null -ne $env:VSAPPIDDIR) {
-    $env:VS_INSTALL_PATH = "$env:VSAPPIDDIR\..\"
+    $env:VS_INSTALL_PATH = "$env:VSAPPIDDIR\..\..\"
   }
   if ($null -ne $env:VS_INSTALL_PATH) {
     Import-Module "$env:VS_INSTALL_PATH\Common7\Tools\Microsoft.VisualStudio.DevShell.dll"

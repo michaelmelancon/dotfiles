@@ -11,5 +11,5 @@ function vs {
   }
 }
 
-#starship init powershell | Invoke-Expression
-oh-my-posh init pwsh | Invoke-Expression
+starship init powershell | Invoke-Expression
+#oh-my-posh init pwsh | Invoke-Expression

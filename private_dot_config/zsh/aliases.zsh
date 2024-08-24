@@ -7,7 +7,7 @@
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"export
 
-alias zshconf ="chezmoi edit ~/.zshrc && chezmoi apply"
+alias zshconf="chezmoi edit ~/.zshrc && chezmoi apply"
 
 alias starshipconf="chezmoi edit $STARSHIP_CONFIG && chezmoi apply"
 

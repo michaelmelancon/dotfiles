@@ -15,12 +15,12 @@
 	sslbackend = openssl
 [credential]
 {{ if and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
-  helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
+	helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
 {{ else }}
-  helper = git-credential-manager
+	helper = git-credential-manager
 {{ end }}
 [credential "https://dev.azure.com"]
-  usehttppath = true
+	usehttppath = true
 [core]
 	longpaths = true
 [gpg]

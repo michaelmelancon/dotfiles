@@ -21,9 +21,9 @@ bars:
       position: "top"
       center: false
     blur_effect:
-      enabled: false
+      enabled: true
       acrylic: false
-      dark: false
+      dark: true
     window_flags:
       always_on_top: false
       windows_app_bar: true
@@ -305,7 +305,8 @@ widgets:
     options:
       label: "{data}"
       app_list:
-        - { icon: "\uf489", launch: "wt" }
+        - { icon: "\uf489", launch: "wezterm" }
+        - { icon: "\uf490", launch: "wezterm connect wsl" }
         - { icon: "\uf413", launch: "explorer %USERPROFILE%" }
         #- {icon: "\udb82\ude1e", launch: "C:\\Users\\amn\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"}
         #- {icon: "\udb80\ude39", launch: "C:\\Program Files\\Mozilla Firefox\\firefox.exe"}
@@ -360,4 +361,3 @@ widgets:
       class_name: "system-widget"
       callbacks:
         on_left: "exec start_menu"
-

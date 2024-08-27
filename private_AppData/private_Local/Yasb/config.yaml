@@ -1,6 +1,15 @@
 watch_stylesheet: true
 watch_config: true
+debug: false # Enable debug mode to see more logs
 
+# This komorebi setting will be used for tray context menu.
+# If you don't use komorebi, you can remove this section.
+komorebi:
+  start_command: "komorebic start --whkd"
+  stop_command: "komorebic stop --whkd"
+  reload_command: "komorebic reload-configuration"
+
+# This is the main configuration file for Yet Another Status Bar (YASB)
 bars:
   status-bar:
     enabled: true
@@ -12,9 +21,9 @@ bars:
       position: "top"
       center: false
     blur_effect:
-      enabled: true
-      acrylic: true
-      dark: true
+      enabled: false
+      acrylic: false
+      dark: false
     window_flags:
       always_on_top: false
       windows_app_bar: true
@@ -38,25 +47,36 @@ bars:
       right: [
           "media",
           "wifi",
+          "disk",
           "battery",
-          #"lang",
+          #"language",
           #"ip_info",
           #"traffic",
           "cpu",
-          #"github",
+          # "github",
           "weather",
           "memory",
-          "wallapers",
+          #"wallapers",
           "volume",
           "power_menu",
         ]
 widgets:
+  disk:
+    type: "yasb.disk.DiskWidget"
+    options:
+      label: "{volume_label} {space[used][percent]}"
+      label_alt: "{volume_label} {space[used][gb]} / {space[total][gb]}"
+      volume_label: "C"
+      update_interval: 60 # Update interval in seconds
+      callbacks:
+        on_middle: "do_nothing"
+        on_right: "exec explorer C:\\" # Open disk C in file explorer
+
   media:
     type: "yasb.media.MediaWidget"
     options:
       label: "{title} - {artist}"
       label_alt: "{title}"
-      update_interval: 1000
       max_field_size:
         label: 20
         label_alt: 30
@@ -131,11 +151,21 @@ widgets:
       callbacks:
         on_right: "exec cmd /c Taskmgr"
 
+  language:
+    type: "yasb.language.LanguageWidget"
+    options:
+      label: "<span>\uf1ab</span> {lang[language_code]}-{lang[country_code]}"
+      label_alt: " {lang[full_name]}"
+      update_interval: 5 # 5 seconds
+      callbacks:
+        on_left: "toggle_label"
+
   komorebi_workspaces:
     type: "komorebi.workspaces.WorkspaceWidget"
     options:
       label_offline: "Komorebi Offline"
-      label_workspace_btn: ""
+      label_workspace_btn: "\udb81\udc3d"
+      label_workspace_active_btn: "\udb81\udc3e"
       label_default_name: "{index}"
       label_zero_index: false
       hide_empty_workspaces: false
@@ -181,12 +211,6 @@ widgets:
       label: "<span>{wifi_icon}</span>"
       label_alt: "{wifi_name} {wifi_strength}%"
       update_interval: 5000
-      wifi_icons:
-        - "\udb82\udd2e" # 0% strength (no wifi)
-        - "\udb82\udd1f" # 1-25% strength
-        - "\udb82\udd22" # 26-50% strength
-        - "\udb82\udd25" # 51-75% strength
-        - "\udb82\udd28" # 76-100% strength. Alternate theming: \uf1eb
       callbacks:
         on_left: "exec cmd.exe /c start ms-settings:network"
         on_middle: "do_nothing"
@@ -242,18 +266,6 @@ widgets:
         # https://www.weatherapi.com/docs/
         # Usage {temp_c}, {min_temp_c}, {max_temp_c}, {temp_f}, {min_temp_f}, {max_temp_f}, {location}, {humidity}, {icon}, {conditions}
 
-  lang:
-    type: "yasb.custom.CustomWidget"
-    options:
-      label: "<span>\uf1ab</span>{data}"
-      label_alt: "{data}"
-      class_name: "lang-widget"
-      exec_options:
-        run_cmd: "powershell Add-Type -AssemblyName System.Windows.Forms;([System.Windows.Forms.InputLanguage]::CurrentInputLanguage).Culture.Name"
-        # run every 10 sec
-        run_interval: 10000
-        return_format: "string"
-
   volume:
     type: "yasb.volume.VolumeWidget"
     options:
@@ -294,11 +306,8 @@ widgets:
       label: "{data}"
       app_list:
         - { icon: "\uf489", launch: "wt" }
-        - { icon: "\uf413", launch: "explorer c:\\Users\\micha" }
-        - {
-            icon: "\udb82\ude1e",
-            launch: "C:\\Users\\micha\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
-          }
+        - { icon: "\uf413", launch: "explorer %USERPROFILE%" }
+        #- {icon: "\udb82\ude1e", launch: "C:\\Users\\amn\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"}
         #- {icon: "\udb80\ude39", launch: "C:\\Program Files\\Mozilla Firefox\\firefox.exe"}
         #- {icon: "\uf1ff", launch: "C:\\Users\\amn\\AppData\\Local\\Discord\\Update.exe --processStart Discord.exe"}
         #- {icon: "\ue217", launch: "C:\\Users\\amn\\AppData\\Roaming\\Telegram Desktop\\Telegram.exe"}
@@ -315,8 +324,9 @@ widgets:
       label: "<span>\ueba1</span>"
       label_alt: "Notifications {data}" # {data} return number of unread notification
       token: ghp_xxxxxxxxxxx # GitHub Personal access tokens (classic) https://github.com/settings/tokens
+      # You can set token: env, this means you have to set YASB_GITHUB_TOKEN in environment variable
       max_notification: 20 # Max number of notification displaying in menu max: 50
-      only_unread: false # Show only unread or all notifications; if you set it to False, all new (unread) will have a white icon.
+      only_unread: false # Show only unread or all notifications;
       max_field_size: 54 # Max characters in title before truncation.
       menu_width: 400
       menu_height: 400
@@ -348,3 +358,6 @@ widgets:
       label: "\ue62a"
       label_alt: "\ue62a"
       class_name: "system-widget"
+      callbacks:
+        on_left: "exec start_menu"
+

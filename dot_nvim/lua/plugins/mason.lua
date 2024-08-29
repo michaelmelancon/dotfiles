@@ -6,6 +6,7 @@ return {
         "stylua",
         "shellcheck",
         "shfmt",
+        "roslyn",
       },
       registries = {
         "github:mason-org/mason-registry",

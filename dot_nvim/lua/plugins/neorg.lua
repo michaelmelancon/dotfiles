@@ -1,3 +1,6 @@
 return {
-  { "nvim-neorg/neorg", opts = {} },
+  {
+    "nvim-neorg/neorg",
+    opts = {},
+  },
 }

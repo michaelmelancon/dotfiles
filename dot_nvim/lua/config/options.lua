@@ -12,6 +12,12 @@ vim.g.loaded_ruby_provider = 0
 vim.opt.scrolloff = 16
 vim.opt.inccommand = "split"
 
+vim.filetype.add({
+  extension = {
+    xaml = "xml",
+  },
+})
+
 if vim.fn.has("win32") == 1 then
   vim.opt.shell = "pwsh.exe"
 end

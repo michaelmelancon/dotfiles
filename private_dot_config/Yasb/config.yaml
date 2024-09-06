@@ -311,8 +311,14 @@ widgets:
             launch: "wezterm start -- wsl --shell-type login --cd ~",
           }
         - { icon: "\uf413", launch: "explorer %USERPROFILE%" }
-        #- {icon: "\udb82\ude1e", launch: "C:\\Users\\amn\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"}
-        {icon: "\udb80\ude39", launch: "C:\\Program Files\\Mozilla Firefox\\firefox.exe"}
+        - {
+            icon: "\udb82\ude1e",
+            launch: "C:\\Users\\amn\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+          }
+        - {
+            icon: "\udb80\ude39",
+            launch: "C:\\Program Files\\Mozilla Firefox\\firefox.exe",
+          }
         #- {icon: "\uf1ff", launch: "C:\\Users\\amn\\AppData\\Local\\Discord\\Update.exe --processStart Discord.exe"}
         #- {icon: "\ue217", launch: "C:\\Users\\amn\\AppData\\Roaming\\Telegram Desktop\\Telegram.exe"}
         - { icon: "\uf0a2", launch: "notification_center" }

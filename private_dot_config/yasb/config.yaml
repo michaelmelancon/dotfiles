@@ -305,10 +305,7 @@ widgets:
       label: "{data}"
       app_list:
         - { icon: "\uf489", launch: "wt" }
-        - {
-            icon: "\ue712",
-            launch: "C:\\Windows\\system32\\wsl.exe -d openSUSE-Tumbleweed",
-          }
+        - { icon: "\ue712", launch: "wt -p openSUSE-Tumbleweed" }
         - { icon: "\uf413", launch: "explorer %USERPROFILE%" }
         - { icon: "\udb82\ude1e", launch: "code" }
         - {

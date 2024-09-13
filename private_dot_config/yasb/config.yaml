@@ -46,7 +46,7 @@ bars:
       right: [
           "media",
           "wifi",
-          #"disk",
+          "disk",
           "battery",
           #"language",
           "ip_info",
@@ -304,22 +304,17 @@ widgets:
     options:
       label: "{data}"
       app_list:
-        - { icon: "\uf489", launch: "wezterm-gui" }
+        - { icon: "\uf489", launch: "wt" }
         - {
             icon: "\ue712",
-            launch: "wezterm start -- wsl --shell-type login --cd ~",
+            launch: "C:\\Windows\\system32\\wsl.exe -d openSUSE-Tumbleweed",
           }
         - { icon: "\uf413", launch: "explorer %USERPROFILE%" }
-        - {
-            icon: "\udb82\ude1e",
-            launch: "C:\\Users\\amn\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
-          }
+        - { icon: "\udb82\ude1e", launch: "code" }
         - {
             icon: "\udb80\ude39",
             launch: "C:\\Program Files\\Mozilla Firefox\\firefox.exe",
           }
-        #- {icon: "\uf1ff", launch: "C:\\Users\\amn\\AppData\\Local\\Discord\\Update.exe --processStart Discord.exe"}
-        #- {icon: "\ue217", launch: "C:\\Users\\amn\\AppData\\Roaming\\Telegram Desktop\\Telegram.exe"}
         - { icon: "\uf0a2", launch: "notification_center" }
         - { icon: "\ueb51", launch: "quick_settings" }
         #- {icon: "\uf46a", launch: "cmd.exe /c start ms-settings:windowsupdate"}
@@ -332,8 +327,8 @@ widgets:
     options:
       label: "<span>\ueba1</span>"
       label_alt: "Notifications {data}" # {data} return number of unread notification
-      token: ghp_xxxxxxxxxxx # GitHub Personal access tokens (classic) https://github.com/settings/tokens
-      # You can set token: env, this means you have to set YASB_GITHUB_TOKEN in environment variable
+      token: env # GitHub Personal access tokens (classic) https://github.com/settings/tokens
+      # set YASB_GITHUB_TOKEN in environment variable
       max_notification: 20 # Max number of notification displaying in menu max: 50
       only_unread: false # Show only unread or all notifications;
       max_field_size: 54 # Max characters in title before truncation.
@@ -346,7 +341,7 @@ widgets:
     type: "yasb.wallpapers.WallpapersWidget"
     options:
       label: "<span>\udb83\ude09</span>"
-      image_path: "C:\\Users\\xxx\\Images" # Path to folder with images
+      image_path: "C:\\Users\\MichaelMelancon\\Images" # Path to folder with images
       change_automatically: false # Automatically change wallpaper
       update_interval: 60 # If change_automatically is true, update interval in seconds
 

@@ -1,0 +1,9 @@
+ThemeFile=gruvbox
+Font=JetBrainsMono NFM Thin
+FontHeight=14
+FontWeight=100
+AllowBlinking=yes
+Term=xterm-256color
+Transparency=high
+OpaqueWhenFocused=yes
+StatusLine=no

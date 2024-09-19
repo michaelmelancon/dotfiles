@@ -4,21 +4,6 @@
   "actions": [
     {
       "command": {
-        "action": "copy",
-        "singleLine": false
-      },
-      "keys": "ctrl+c"
-    },
-    {
-      "command": "paste",
-      "keys": "ctrl+v"
-    },
-    {
-      "command": "find",
-      "keys": "ctrl+shift+f"
-    },
-    {
-      "command": {
         "action": "splitPane",
         "split": "auto",
         "splitMode": "duplicate"
@@ -28,18 +13,39 @@
   ],
   "alwaysShowNotificationIcon": true,
   "copyFormatting": "none",
-  "copyOnSelect": false,
+  "copyOnSelect": true,
+  "experimental.detectURLs": true,
+  "experimental.enableColorSelection": true,
   "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
-  "focusFollowMouse": true,
   "newTabMenu": [
     {
       "type": "remainingProfiles"
+    },
+    {
+      "type": "folder",
+      "name": "Visual Studio",
+      "entries": [
+        {
+          "type": "matchProfiles",
+          "source": "Windows.Terminal.VisualStudio"
+        }
+      ]
+    },
+    {
+      "type": "matchProfiles",
+      "source": "Git"
     }
   ],
   "profiles": {
     "defaults": {
       "adjustIndistinguishableColors": "indexed",
-      "backgroundImage": null,
+      "altGrAliasing": true,
+      "autoMarkPrompts": true,
+      "showMarksOnScrollbar": true,
+      "unfocusedAppearance": {
+        "useAcrylic": true,
+        "opacity": 10
+      },
       "bellStyle": ["window", "taskbar"],
       "colorScheme": "One Half Dark",
       "cursorShape": "emptyBox",
@@ -47,96 +53,66 @@
         "builtinGlyphs": true,
         "colorGlyphs": true,
         "face": "FiraCode Nerd Font",
-        "features": {}
+        "size": 14,
+        "weight": "thin"
       },
       "intenseTextStyle": "all",
       "useAcrylic": false
     },
     "list": [
       {
-        "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
-        "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-        "hidden": false,
-        "name": "Windows PowerShell"
-      },
-      {
-        "commandline": "%SystemRoot%\\System32\\cmd.exe",
-        "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-        "hidden": false,
-        "name": "Command Prompt"
-      },
-      {
-        "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-        "hidden": false,
-        "name": "Azure Cloud Shell",
-        "source": "Windows.Terminal.Azure"
-      },
-      {
-        "guid": "{bc2da056-dd06-5879-b969-1dfcefc8d2c7}",
-        "hidden": false,
-        "name": "openSUSE-Tumbleweed",
-        "source": "Windows.Terminal.Wsl"
-      },
-      {
-        "experimental.retroTerminalEffect": false,
-        "font": {
-          "size": 14
-        },
         "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
-        "hidden": false,
         "name": "PowerShell",
         "source": "Windows.Terminal.PowershellCore"
       },
       {
+        "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+        "name": "Command Prompt"
+      },
+      {
+        "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
+        "name": "Git Bash",
+        "commandline": "%PROGRAMFILES%\\git\\bin\\bash.exe -i -l",
+        "icon": "%PROGRAMFILES%\\git\\mingw64\\share\\git\\git-for-windows.ico",
+        "startingDirectory": "%USERPROFILE%"
+      },
+      {
+        "guid": "{bc2da056-dd06-5879-b969-1dfcefc8d2c7}",
+        "name": "openSUSE-Tumbleweed",
+        "source": "Windows.Terminal.Wsl"
+      },
+      {
+        "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+        "name": "Windows PowerShell"
+      },
+      {
+        "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+        "name": "Azure Cloud Shell",
+        "source": "Windows.Terminal.Azure"
+      },
+      {
         "guid": "{8af2c2f6-2c67-5fa1-b786-198addc4a7df}",
-        "hidden": false,
         "name": "Developer Command Prompt for VS 2022 [Preview]",
         "source": "Windows.Terminal.VisualStudio"
       },
       {
         "guid": "{8d417cfa-3d6e-57d3-a71e-2478325785ca}",
-        "hidden": false,
         "name": "Developer PowerShell for VS 2022 [Preview]",
         "source": "Windows.Terminal.VisualStudio"
       },
       {
-        "guid": "{7cde65eb-b5cd-54d8-9a53-57cec1f374eb}",
-        "hidden": true,
-        "name": "Developer Command Prompt for VS 2019",
-        "source": "Windows.Terminal.VisualStudio"
-      },
-      {
-        "guid": "{62a7cb5c-7185-5036-adf1-22b6d5b5b7e3}",
-        "hidden": true,
-        "name": "Developer PowerShell for VS 2019",
-        "source": "Windows.Terminal.VisualStudio"
-      },
-      {
         "guid": "{55f2fa19-cb46-5a88-b747-f932f4e7e73f}",
-        "hidden": true,
         "name": "Developer Command Prompt for VS 2022",
         "source": "Windows.Terminal.VisualStudio"
       },
       {
         "guid": "{24ca2fcb-028b-543b-ae9b-21741bbc92b3}",
-        "hidden": true,
         "name": "Developer PowerShell for VS 2022",
         "source": "Windows.Terminal.VisualStudio"
-      },
-      {
-        "commandline": "%PROGRAMFILES%\\git\\bin\\bash.exe -i -l",
-        "guid": "{9e1237a3-e7e5-4d78-928f-5a7cc9d4af74}",
-        "hidden": false,
-        "icon": "%PROGRAMFILES%\\git\\mingw64\\share\\git\\git-for-windows.ico",
-        "name": "Git-Bash",
-        "startingDirectory": "%USERPROFILE%"
       }
     ]
   },
-  "rendering.disablePartialInvalidation": true,
   "schemes": [],
-  "tabWidthMode": "titleLength",
   "themes": [],
   "useAcrylicInTabRow": true
 }
-

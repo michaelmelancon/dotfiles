@@ -23,6 +23,9 @@
 	usehttppath = true
 [core]
 	longpaths = true
+{{- if eq .chezmoi.os "windows"}}
+	filemode = false
+{{ end }}
 [gpg]
 	format = openpgp
 [push]

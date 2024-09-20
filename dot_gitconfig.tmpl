@@ -1,7 +1,15 @@
 # This is Git's per-user configuration file.
 [user]
+  email = michaelmelancon@gmail.com
 	name = Michael Melancon
-	email = michaelmelancon@gmail.com
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILtiWQm7S4TG0wVg1C+UFsd8MCS+oz0yoo3XmNvv35q+
+[gpg]
+	format = ssh
+	program = gpg
+[commit]
+	gpgsign = true
+[tag]
+	forceSignAnnotated = false
 [fetch]
 	prune = true
 [init]
@@ -13,21 +21,26 @@
 	required = true
 [http]
 	sslbackend = openssl
-[credential]
+# WSL specific settings
 {{ if and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+[credential]
 	helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
+[gpg "ssh"]
+  program = "/mnt/c/Program Files/1Password/app/8/op-ssh-sign-wsl"
 {{ else }}
+[credential]
 	helper = git-credential-manager
+[gpg "ssh"]
+	program = C:\\Program Files\\1Password\\app\\8\\op-ssh-sign.exe
+	allowedSignersFile = 
 {{ end }}
 [credential "https://dev.azure.com"]
 	usehttppath = true
 [core]
 	longpaths = true
-{{- if eq .chezmoi.os "windows"}}
+{{ if (eq .chezmoi.os "windows") }}
 	filemode = false
 {{ end }}
-[gpg]
-	format = openpgp
 [push]
 	autoSetupRemote = true
 [pull]

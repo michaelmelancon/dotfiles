@@ -8,6 +8,7 @@
         "split": "auto",
         "splitMode": "duplicate"
       },
+      "id": "User.splitPane.A6751878",
       "keys": "alt+shift+d"
     }
   ],
@@ -16,18 +17,19 @@
   "copyOnSelect": true,
   "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
   "experimental.detectURLs": true,
-  "experimental.enableColorSelection": true,
   "newTabMenu": [
     {
       "type": "remainingProfiles"
     },
     {
+      "allowEmpty": false,
       "entries": [
         {
           "source": "Windows.Terminal.VisualStudio",
           "type": "matchProfiles"
         }
       ],
+      "inline": "never",
       "name": "Visual Studio",
       "type": "folder"
     }
@@ -43,14 +45,14 @@
       "font": {
         "builtinGlyphs": true,
         "colorGlyphs": true,
-        "face": "FiraCode Nerd Font",
+        "face": "JetBrainsMonoNL Nerd Font Mono",
         "size": 14,
         "weight": "thin"
       },
       "intenseTextStyle": "all",
       "showMarksOnScrollbar": true,
       "unfocusedAppearance": {
-        "opacity": 10,
+        "opacity": 50,
         "useAcrylic": true
       },
       "useAcrylic": false
@@ -121,3 +123,4 @@
   "themes": [],
   "useAcrylicInTabRow": true
 }
+

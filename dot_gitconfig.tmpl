@@ -1,6 +1,6 @@
 # This is Git's per-user configuration file.
 [user]
-  email = michaelmelancon@gmail.com
+	email = michaelmelancon@gmail.com
 	name = Michael Melancon
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILtiWQm7S4TG0wVg1C+UFsd8MCS+oz0yoo3XmNvv35q+
 [gpg]
@@ -21,12 +21,11 @@
 	required = true
 [http]
 	sslbackend = openssl
-# WSL specific settings
 {{ if and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 [credential]
 	helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
 [gpg "ssh"]
-  program = "/mnt/c/Program Files/1Password/app/8/op-ssh-sign-wsl"
+	program = "/mnt/c/Program Files/1Password/app/8/op-ssh-sign-wsl"
 {{ else }}
 [credential]
 	helper = git-credential-manager

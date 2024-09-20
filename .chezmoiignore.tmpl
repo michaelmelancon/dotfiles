@@ -1,12 +1,11 @@
 {{- if eq .chezmoi.os "windows"}}
 .zshrc
 .profile
-.gitconfig
 .config/nvim
 .config/powershell
 .config/tmux
 .config/zsh
-{{ else }}
+{{- else }}
 OneDrive
 Documents
 AppData
@@ -15,5 +14,5 @@ AppData
 .config/yasb
 .oh-my-zsh/cache
 komorebi.json
-{{ end }}
+{{- end }}
 .nvim

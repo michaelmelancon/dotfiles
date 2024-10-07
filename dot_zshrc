@@ -1,6 +1,28 @@
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+####################
+# Added by sway-wsl2
+####################
+
+# Set environment variables when running sway
+if [[ $XDG_SESSION_DESKTOP == "sway" ]]; then
+  # Default browser is "wslview"
+  export BROWSER=firefox
+
+  # Allows xdg-open to open programs within the VM, instead of windows
+  export DE=generic
+
+  # Allow VSCode to open within the VM instead of telling you to install it on windows
+  export DONT_PROMPT_WSL_INSTALL=1
+
+  # Uncomment to get kitty working. GTK_USE_PORTAL may break some other things so I left it disabled for now
+  # Kitty is low resolution in WSL2 though for some reason? Would stick to xfce4-terminal or another terminal emulator
+  export GTK_USE_PORTAL=1
+  export LIBGL_ALWAYS_INDIRECT=0
+  export GALLIUM_DRIVER=llvmpipe
+fi
+
 # Path to starship config
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 
